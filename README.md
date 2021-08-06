@@ -67,7 +67,12 @@ In meeting the minimum viable product (MVP) specifications listed below, your pr
 Be prepared to demonstrate your understanding of this week's concepts by answering questions on the following topics. You might prepare by writing down your own answers before hand.
 
 1. What is the DOM?
+    - The DOM is the interface of the HTML, it defines HTML elements as objects.
 2. What is an event?
+    - An event takes place after an event listener is interacted with and it puts calls code into use somewhat like a function.
 3. What is an event listener?
+    - An event listener is an interactable component that when interacted with fires off an event, think of clicking a button that submits things on a website.
 4. Why would we convert a NodeList into an Array?
+    - We convert a Nodelist into an Array as a nodelist doesn't have access to certain array functions, such as .map(), .filter(), ETC.
 5. What is a component?
+    - A component is a part of the larger program and it provides a function. I think of it as a building block in a lego set, it's the driving force to it all.
