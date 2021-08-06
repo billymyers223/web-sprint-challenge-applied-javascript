@@ -1,3 +1,5 @@
+//import { doc } from "prettier"
+
 const Header = (title, date, temp) => {
   // TASK 1
   // ---------------------
@@ -11,6 +13,24 @@ const Header = (title, date, temp) => {
   //    <span class="temp">{ temp }</span>
   //  </div>
   //
+  const header = document.createElement('div');
+  const Hdate = document.createElement('span');
+  const Htitle = document.createElement('h1');
+  const Htemp = document.createElement('temp');
+  
+  header.classList.add('header');
+  Hdate.classList.add('date');
+  Htemp.classList.add('temp');
+  
+  header.appendChild(Hdate);
+  header.appendChild(Htitle);
+  header.appendChild(Htemp);
+
+  Hdate.textContent = date;
+  Htitle.textContent= title;
+  Htemp.textContent = temp;
+
+return header;
 }
 
 const headerAppender = (selector) => {
@@ -20,6 +40,9 @@ const headerAppender = (selector) => {
   // It should create a header using the Header component above, passing arguments of your choosing.
   // It should append the header to the element in the DOM that matches the given selector.
   //
+  selector = document.querySelector('.header-container');
+  selector.appendChild(Header('Billy Site','August 6th','Hi there and welcome!'));
+
 }
 
 export { Header, headerAppender }

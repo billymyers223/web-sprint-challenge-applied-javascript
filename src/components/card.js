@@ -1,3 +1,7 @@
+//import { doc } from "prettier";
+
+import axios from "axios";
+
 const Card = (article) => {
   // TASK 5
   // ---------------------
@@ -17,7 +21,45 @@ const Card = (article) => {
   //   </div>
   // </div>
   //
+  const card = document.createElement('div');
+  const head = document.createElement('div');
+  const author = document.createElement('div');
+  const imgCont = document.createElement('div');
+  const img = document.createElement('img');
+  const span = document.createElement('span');
+
+  card.classList.add('card');
+  head.classList.add('headline');
+  author.classList.add('author');
+  imgCont.classList.add('img-container');
+
+  card.appendChild(head);
+  card.appendChild(author);
+  author.appendChild(imgCont);
+  imgCont.appendChild(img);
+  author.appendChild(span);
+  // <div class="card">
+  //   <div class="headline">{ headline }</div>
+  //   <div class="author">
+  //     <div class="img-container">
+  //       <img src={ authorPhoto }>
+  //     </div>
+  //     <span>By { authorName }</span>
+  //   </div>
+  // </div>
+  //  // It takes as its only argument an "article" object with `headline`, `authorPhoto` and `authorName` properties.
+head.textContent = article.headline;
+author.textContent = article.authorName;
+img.src = article.authorPhoto;
+
+card.addEventListener('click', ()=>{
+  console.log(head);
+})
+
+return card;
+
 }
+
 
 const cardAppender = (selector) => {
   // TASK 6
@@ -28,6 +70,11 @@ const cardAppender = (selector) => {
   // Create a card from each and every article object in the response, using the Card component.
   // Append each card to the element in the DOM that matches the selector passed to the function.
   //
+axios.get('http://localhost:5000/api/articles')
+  .then(res =>{
+    console.log(res);
+  })
+
 }
 
 export { Card, cardAppender }
