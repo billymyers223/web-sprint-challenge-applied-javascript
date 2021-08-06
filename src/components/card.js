@@ -38,19 +38,10 @@ const Card = (article) => {
   author.appendChild(imgCont);
   imgCont.appendChild(img);
   author.appendChild(span);
-  // <div class="card">
-  //   <div class="headline">{ headline }</div>
-  //   <div class="author">
-  //     <div class="img-container">
-  //       <img src={ authorPhoto }>
-  //     </div>
-  //     <span>By { authorName }</span>
-  //   </div>
-  // </div>
-  //  // It takes as its only argument an "article" object with `headline`, `authorPhoto` and `authorName` properties.
+
 head.textContent = article.headline;
-author.textContent = `By ${article.authorName}`;
-img.setAttribute('src', article.authorPhoto);
+span.textContent = `By ${article.authorName}`;
+img.setAttribute('src', article.authorPhoto)
 
 card.addEventListener('click', ()=>{
   console.log(head);
@@ -93,6 +84,8 @@ axios.get('http://localhost:5000/api/articles')
     res.data.articles.node.forEach(article => {
       document.querySelector(selector).appendChild(Card(article));
     });
+  }).catch(error =>{
+    console.error(error);
   })
 
 }
