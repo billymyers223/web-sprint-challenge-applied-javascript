@@ -1,4 +1,4 @@
-//import { doc } from "prettier";
+
 
 import axios from "axios";
 
@@ -49,8 +49,8 @@ const Card = (article) => {
   // </div>
   //  // It takes as its only argument an "article" object with `headline`, `authorPhoto` and `authorName` properties.
 head.textContent = article.headline;
-author.textContent = article.authorName;
-img.src = article.authorPhoto;
+author.textContent = `By ${article.authorName}`;
+img.setAttribute('src', article.authorPhoto);
 
 card.addEventListener('click', ()=>{
   console.log(head);
@@ -73,6 +73,26 @@ const cardAppender = (selector) => {
 axios.get('http://localhost:5000/api/articles')
   .then(res =>{
     console.log(res);
+
+    res.data.articles.javascript.forEach(article => {
+      document.querySelector(selector).appendChild(Card(article));
+    });
+
+    res.data.articles.bootstrap.forEach(article => {
+      document.querySelector(selector).appendChild(Card(article));
+    });
+
+    res.data.articles.technology.forEach(article => {
+      document.querySelector(selector).appendChild(Card(article));
+    });
+
+    res.data.articles.jquery.forEach(article => {
+      document.querySelector(selector).appendChild(Card(article));
+    });
+
+    res.data.articles.node.forEach(article => {
+      document.querySelector(selector).appendChild(Card(article));
+    });
   })
 
 }

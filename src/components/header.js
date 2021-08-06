@@ -1,4 +1,4 @@
-//import { doc } from "prettier"
+
 
 const Header = (title, date, temp) => {
   // TASK 1
